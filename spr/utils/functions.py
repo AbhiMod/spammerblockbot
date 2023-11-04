@@ -105,7 +105,7 @@ __Message has been deleted__
         {
             "Correct (0)": "upvote_spam",
             "Incorrect (0)": "downvote_spam",
-            "Chat": "https://t.me/" + (message.chat.username or "SpamProtectionLog/93"),
+            "Chat": "https://t.me/" + (message.chat.username or "Spam_Detection/93"),
         },
         2
     )
