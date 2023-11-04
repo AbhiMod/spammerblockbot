@@ -52,10 +52,6 @@ async def help_command(_, message: Message):
             "➕ Add Me Your Group": f"https://t.me/{BOT_USERNAME}?startgroup=new",
             "Help": "bot_commands",   
            }
-           {
-            "Repo": "https://t.me/AM_YTBOTT",
-            "Support Chat": "https://t.me/AM_YTSUPPORT",
-            }
     )
     mention = message.from_user.mention
     await message.reply_photo(
