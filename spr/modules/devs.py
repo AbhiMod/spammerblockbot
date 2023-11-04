@@ -8,6 +8,7 @@ from io import StringIO
 from time import time
 
 from pyrogram import filters
+from pyrogram.errors import FloodWait
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 
