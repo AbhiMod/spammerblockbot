@@ -25,4 +25,4 @@ else:
     SUDOERS = [int(x) for x in env.get("SUDO_USERS_ID", "6204761408 5360305806").split()]
     NSFW_LOG_CHANNEL = int(env.get("NSFW_LOG_CHANNEL","-1002104689794"))
     SPAM_LOG_CHANNEL = int(env.get("SPAM_LOG_CHANNEL","-1001827829745"))
-    ARQ_API_KEY = env.get("ARQ_API_KEY")
+    ARQ_API_KEY = env.get("ARQ_API_KEY","EJSUNZ-BJXKAI-AKQDZL-NMPKWQ-ARQ")
