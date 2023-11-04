@@ -57,7 +57,7 @@ async def help_command(_, message: Message):
         }
        {
             "Repo": "https://t.me/AM_YTBOTT",
-            "Support Chat (for now)": "https://t.me/AM_YTSUPPORT",
+            "Support Chat": "https://t.me/AM_YTSUPPORT",
         }
     )
     mention = message.from_user.mention
