@@ -48,10 +48,15 @@ async def help_command(_, message: Message):
         kb = ikb({"Help": f"https://t.me/{BOT_USERNAME}?start=help"})
         return await message.reply("Pm Me For Help", reply_markup=kb)
     kb = ikb(
+      {
+            "➕ Add Me Your Group": f"https://t.me/{BOT_USERNAME}?startgroup=new",
+        }
         {
             "Help": "bot_commands",
+            
+        }
+       {
             "Repo": "https://t.me/AM_YTBOTT",
-            "➕ Add Me Your Group": f"https://t.me/{BOT_USERNAME}?startgroup=new",
             "Support Chat (for now)": "https://t.me/AM_YTSUPPORT",
         }
     )
