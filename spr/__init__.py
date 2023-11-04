@@ -5,7 +5,7 @@ from aiohttp import ClientSession
 from pyrogram import Client
 from Python_ARQ import ARQ
 
-SESSION_NAME = "spr"
+SESSION_NAME = "spambot"
 DB_NAME = "db.sqlite3"
 API_ID = 27733303
 API_HASH = "c3c9d5e5d89c99fb8bb85a22a0cb5a26"
