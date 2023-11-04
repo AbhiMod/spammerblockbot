@@ -9,7 +9,7 @@ SESSION_NAME = "spambot"
 DB_NAME = "db.sqlite3"
 API_ID = 27733303
 API_HASH = "c3c9d5e5d89c99fb8bb85a22a0cb5a26"
-ARQ_API_URL = "https://arq.hamker.in"
+ARQ_API_URL = "https://arq.hamker.dev"
 
 if exists("config.py"):
     from config import *
