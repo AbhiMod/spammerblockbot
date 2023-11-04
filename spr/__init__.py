@@ -5,8 +5,8 @@ from aiohttp import ClientSession
 from pyrogram import Client
 from Python_ARQ import ARQ
 
-SESSION_NAME = "BQC92TNmQRV2YX9WNXHM8xQ6F7Iu-UOjLmUCa52LXluXwVs_aFMfqUjyN5vr8Cj4bZ5Nxh4QUNHWn1bu2BOLs7WY9nZ8Uon0S7O6A7ozrMx0hzjkrwAuaD5Y7-1Qv3i0Hz8ggvkqPMcJaroRJwioX4YXrCAgwkwLSNbOOiKz-04NXbFVe8ffe7QxoAKedqzZ0NvkiqBgG3bKOz7S_D6SM_OE6Qw0PCZy-h7-S6dSIiAJ7TIJJP4aKVoJRxpro1i7Vtzvyk_sAvdEjCmoUcNFkFm2lCogZ0IUiw5t-sD9h-61jc3saVbauDeBex2rlZ-nDcUP0-Hss-onKIM_77UxS11FAAAAAYzDgH8A"
-DB_NAME = "db.sqlite3"
+SESSION_NAME = "BQChRclD6suwWBL-I4n9rD-K0Hgm7cQ_Ks98CrAvtaCRDznRr3ArNbunyjKT1TihOiwvQcXX-aSvZSy9uoxc-tBg4hPAnXH1E3wY5rb_Bf39OnNmXCNKCTnO8018hM6UdkURi2K1V2HbpDGgdl9D6duML4a8Jl52JpuwpQ10DejrQQDrB4qCPIWu8cgIEteWmg91IEFIfNLHrWK-sSVS0nuUmI1JwvOQZXt7fW5NmspO2EBAfAt2DF5p65pHpjrSdMKRNXaFH5afRXRGJjlGGJIFKrGmRoEEFmvZSkLc-s9jGlWe3_67_Rl5zZqZUrRgld5WtXdGt0zLQ8bZWa705oilAAAAAXHVJUAA"
+DB_NAME = "postgres://yone:Kushal55@yone.cirqmtrbghab.us-east-1.rds.amazonaws.com:5432/yone"
 API_ID = 27733303
 API_HASH = "c3c9d5e5d89c99fb8bb85a22a0cb5a26"
 ARQ_API_URL = "https://arq.hamker.in"
