@@ -5,7 +5,7 @@ from telethon.errors import ChatAdminRequiredError, UserAdminInvalidError
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChannelParticipantsAdmins, ChatBannedRights
 
-from spr import OWNER_ID, telethn
+from spr import OWNER_ID, spr
 
 # =================== CONSTANT ===================
 
@@ -50,7 +50,7 @@ async def is_administrator(user_id: int, message):
     return admin
 
 
-@telethn.on(events.NewMessage(pattern="^[!/]zombies ?(.*)"))
+@spr.on(events.NewMessage(pattern="^[!/]zombies ?(.*)"))
 async def rm_deletedacc(show):
     con = show.pattern_match.group(1).lower()
     del_u = 0
