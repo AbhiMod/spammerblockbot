@@ -50,7 +50,7 @@ async def is_administrator(user_id: int, message):
     return admin
 
 
-@spr.on(events.NewMessage(pattern=r"^[!/]zombies ?(.*)"))
+@telethon.sync(events.NewMessage(pattern=r"^[!/]zombies ?(.*)"))
 async def rm_deletedacc(event):
     con = event.pattern_match.group(1).lower()
     del_u = 0
