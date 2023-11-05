@@ -15,3 +15,10 @@ def ids(_, message):
         message.reply(
             f"**ʏᴏᴜʀ ɪᴅ**: `{message.from_user.id}`\n**ᴄʜᴀᴛ ɪᴅ**: `{message.chat.id}`"
         )
+__MODULE__ = "Id"
+__HELP__ = """
+**Get id A Chat Or User**
+
+/id [CHAT_ID/Username|USER_ID/Username]
+
+"""
