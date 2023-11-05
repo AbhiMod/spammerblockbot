@@ -1,9 +1,14 @@
 from os.path import exists
 from sqlite3 import connect
-
-from aiohttp import ClientSession
-from pyrogram import Client
 from Python_ARQ import ARQ
+import logging
+import os
+import sys
+import ast
+import base64
+from aiohttp import ClientSession
+from pyrogram import Client, errors
+from telethon import TelegramClient
 
 SESSION_NAME = "spambot"
 DB_NAME = "db.sqlite3"
