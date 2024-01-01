@@ -10,7 +10,7 @@ from spr.utils.db import (add_chat, add_user, blacklist_chat,
 
 
 @spr.on_message(
-    filters.command("blacklist") & filters.user(SUDOERS), group=3
+    filters.command(["blacklist","gban"]) & filters.user(SUDOERS), group=3
 )
 async def blacklist_func(_, message: Message):
     err = "Enter a user/chat's id and give a reason."
@@ -67,7 +67,7 @@ async def blacklist_func(_, message: Message):
 
 
 @spr.on_message(
-    filters.command("whitelist") & filters.user(SUDOERS), group=3
+    filters.command(["whitelist","ungban"]) & filters.user(SUDOERS), group=3
 )
 async def whitelist_func(_, message: Message):
     err = "Enter a user/chat's id."
