@@ -44,14 +44,17 @@ async def edit_or_reply(msg: Message, **kwargs):
     spec = getfullargspec(func.__wrapped__).args
     await func(**{k: v for k, v in kwargs.items() if k in spec})
 
-
-@spr.on_message(
-    filters.user(SUDOERS)
+@spr.on_edited_message(
+    filters.command("eval")
+    & filters.user(SUDOERS)
     & ~filters.forwarded
     & ~filters.via_bot
-    & ~filters.edited
-    & filters.command("eval"),
-    group=50,
+)
+@spr.on_message(
+    filters.command("eval")
+    & filters.user(SUDOERS)
+    & ~filters.forwarded
+    & ~filters.via_bot
 )
 async def executor(client, message):
     try:
@@ -127,14 +130,17 @@ async def runtime_func_cq(_, cq):
     runtime = cq.data.split(None, 1)[1]
     await cq.answer(runtime, show_alert=True)
 
-
-@spr.on_message(
-    filters.user(SUDOERS)
+@spr.on_edited_message(
+    filters.command("sh")
+    & filters.user(SUDOERS)
     & ~filters.forwarded
     & ~filters.via_bot
-    & ~filters.edited
-    & filters.command("sh"),
-    group=50,
+)
+@spr.on_message(
+    filters.command("sh")
+    & filters.user(SUDOERS)
+    & ~filters.forwarded
+    & ~filters.via_bot
 )
 async def shellrunner(client, message):
     if len(message.command) < 2:
