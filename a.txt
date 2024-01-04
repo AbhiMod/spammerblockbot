@@ -17,7 +17,7 @@ motor==3.0.0
 pillow
 psutil
 py-tgcalls==0.8.6
-pyrogram==1.4.16
+pyrogram
 pyyaml
 requests
 speedtest-cli
