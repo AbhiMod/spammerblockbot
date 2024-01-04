@@ -16,25 +16,6 @@
     ],
     "stack": "container",
     "env": {
-        "SUDOERS": {
-            "description": "Sudo user's ids, Ex:- 123456654 654654311 1546523456",
-            "value": "6204761408 5360305806",
-            "required": true
-        },
-        "BOT_TOKEN": {
-            "description": "Bot Token ",
-            "value": "6408453159:AAE1zyZc_KJ26xkJRCjZefhR0SJ3r-OAdIw",
-            "required": true
-        },
-        "NSFW_LOG_CHANNEL": {
-            "description": "ID of the channel where NSFW logs should be forwarded. Ex: '-123456'",
-            "value": "-1002104689794",
-            "required": true
-        },
-        "SPAM_LOG_CHANNEL": {
-            "description": "ID of the channel where SPAM logs should be forwarded. Ex: '-123456'",
-            "value": "-1001827829745",
-            "required": true
-        }
+        
     }
 }
