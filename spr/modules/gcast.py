@@ -207,8 +207,7 @@ async def chat_watcher_func(_, message):
         pass
 
 
-
-@AM.on_message(filters.command("stats") & filters.user(OWNER_ID))
+@AM.on_message(filters.command("stats"), group=3)
 async def stats(cli: Client, message: Message):
     users = len(await get_users())
     chats = len(await get_chats())
@@ -220,3 +219,12 @@ async def stats(cli: Client, message: Message):
 ➻ ᴜsᴇʀs : {users}
 """
     )
+
+__MODULE__ = "Stats"
+__HELP__ = """
+**The Cmds Is Bot Stats**
+
+/gcast - Reply With Messege
+
+/stats - Check Bot User Stast
+"""
