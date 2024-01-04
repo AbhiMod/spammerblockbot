@@ -3,8 +3,10 @@ python-arq
 pykeyboard
 python-dotenv
 aiofiles
-aiohttp
-asyncio
+aiohttp==3.9.1
+asyncio==3.4.3
+dnspython
+python-dotenv
 dnspython
 ffmpeg-python
 gitpython
