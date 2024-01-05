@@ -11,10 +11,25 @@ from pyrogram.types import(InlineKeyboardButton, InlineKeyboardMarkup, InputMedi
 
 AM_SUPPORT = "-1001841879487"
 
-async def lul_message(chat_id: int, message: str):
-    await spr.send_message(chat_id=chat_id, text=message)
 
+@spr.on_message(filters.new_chat_members, group=2)
+async def join_watcher(_, message):    
+    chat = message.chat
+    for members in message.new_chat_members:
+        if members.id == spr.id:
+            count = await spr.get_chat_members_count(chat.id)
 
+            msg = (
+                f"📝 ᴍᴜsɪᴄ ʙᴏᴛ ᴀᴅᴅᴇᴅ ɪɴ ᴀ ɴᴇᴡ ɢʀᴏᴜᴘ\n\n"
+                f"____________________________________\n\n"
+                f"📌 ᴄʜᴀᴛ ɴᴀᴍᴇ: {message.chat.title}\n"
+                f"🍂 ᴄʜᴀᴛ ɪᴅ: {message.chat.id}\n"
+                f"🔐 ᴄʜᴀᴛ ᴜsᴇʀɴᴀᴍᴇ: @{message.chat.username}\n"
+                f"📈 ɢʀᴏᴜᴘ ᴍᴇᴍʙᴇʀs: {count}\n"
+                f"🤔 ᴀᴅᴅᴇᴅ ʙʏ: {message.from_user.mention}"
+            )
+            await spr.send_message(AM_SUPPORT, msg)
+                                 
 @spr.on_message(filters.new_chat_members)
 async def on_new_chat_members(client: Client, message: Message):
     if (await client.get_me()).id in [user.id for user in message.new_chat_members]:
