@@ -11,21 +11,17 @@ from pyrogram.types import(InlineKeyboardButton, InlineKeyboardMarkup, InputMedi
 
 AM_SUPPORT = "-1001841879487"
 
-
-@spr.on_message(filters.new_chat_members, group=2)
-async def join_watcher(_, message):    
-    chat = message.chat
-            msg = (
-                f"📝 ᴍᴜsɪᴄ ʙᴏᴛ ᴀᴅᴅᴇᴅ ɪɴ ᴀ ɴᴇᴡ ɢʀᴏᴜᴘ\n\n"
-                f"____________________________________\n\n"
-                f"📌 ᴄʜᴀᴛ ɴᴀᴍᴇ: {message.chat.title}\n"
-                f"🍂 ᴄʜᴀᴛ ɪᴅ: {message.chat.id}\n"
-                f"🔐 ᴄʜᴀᴛ ᴜsᴇʀɴᴀᴍᴇ: @{message.chat.username}\n"
-                f"🤔 ᴀᴅᴅᴇᴅ ʙʏ: {message.from_user.mention}"
-            )
-            await spr.send_message(AM_SUPPORT, msg)
-                                 
-
+@spr.on_message(filters.new_chat_members)
+async def on_new_chat_members(_, message: Message):
+    new_members = message.new_chat_members
+    for member in new_members:
+        username = member.username if member.username else "𝐍ᴏ 𝐔ꜱᴇʀɴᴀᴍᴇ"
+        joined_by = message.from_user.mention if message.from_user else "𝐔ɴᴋɴᴏᴡɴ 𝐔sᴇʀ"
+        title = message.chat.title
+        chat_id = message.chat.id
+        joined = f"✫ #𝐉ᴏɪɴᴇᴅ_𝐆ʀᴏᴜᴘ ✫\n✫ 𝐂ʜᴀᴛ 𝐓ɪᴛʟᴇ : {title}\n✫ 𝐂ʜᴀᴛ 𝐈ᴅ : {chat_id}\n✫ 𝐉ᴏɪɴᴇᴅ 𝐔ꜱᴇʀ : {username}\n✫ 𝐉ᴏɪɴᴇᴅ 𝐁ʏ : {joined_by}\n✫ 𝐁ᴏᴛ : @SpamProtection_Bot"
+        await spr.send_message(AM_SUPPORT, joined) 
+        
 @spr.on_message(filters.left_chat_member)
 async def on_left_chat_member(_, message: Message):
     if (await spr.get_me()).id == message.left_chat_member.id:
