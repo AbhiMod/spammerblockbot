@@ -55,9 +55,9 @@ async def on_left_chat_member(_, message: Message):
         await spr.send_message(AM_SUPPORT, left)
       
 
-__MODULE__ = "Loggers"
+__MODULE__ = "Lᴏɢɢᴇʀꜱ"
 __HELP__ = """
-**This Cmds Is Only Can Seen Owner**
+**ᴛʜɪꜱ ᴄᴍᴅꜱ ɪꜱ ᴏɴʟʏ ᴄᴀɴ ꜱᴇᴇɴ ᴏᴡɴᴇʀ**
 
 
 """
