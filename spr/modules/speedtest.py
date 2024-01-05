@@ -5,47 +5,41 @@ import speedtest
 from pyrogram import filters
 from pyrogram.types import Message
 
-from spr import spr as app
+from spr import spr as Client
 from spr import SUDOERS
 
-def testspeed(m, _):
-    try:
-        test = speedtest.Speedtest()
-        test.get_best_server()
-        m = m.edit_text("<b>⇆ ʀᴜɴɴɪɴɢ ᴅᴏᴡɴʟᴏᴀᴅ sᴩᴇᴇᴅᴛᴇsᴛ...</b>")
-        test.download()
-        m = m.edit_text("<b>⇆ ʀᴜɴɴɪɴɢ ᴜᴩʟᴏᴀᴅ sᴩᴇᴇᴅᴛᴇsᴛ...</b>")
-        test.upload()
-        test.results.share()
-        result = test.results.dict()
-        m = m.edit_text("<b>↻ sʜᴀʀɪɴɢ sᴩᴇᴇᴅᴛᴇsᴛ ʀᴇsᴜʟᴛs...</b>")
-    except Exception as e:
-        return m.edit_text(f"<code>{e}</code>")
-    return result
+from pyrogram import Client, filters, idle
+import pyrogram, asyncio, random, time
+from pyrogram.errors import FloodWait
+from pyrogram.types import *
+import requests
 
-@app.on_message(filters.command("speedtest"), group=3)
-async def speedtest_function(client, message: Message):
-    m = await message.reply_text("» ʀᴜɴɴɪɴɢ ᴀ sᴘᴇᴇᴅᴛᴇsᴛ...")
-    loop = asyncio.get_event_loop()
-    partial_func = functools.partial(testspeed, m)
-    result = await loop.run_in_executor(None, partial_func)
-    output = "✯ <b>sᴩᴇᴇᴅᴛᴇsᴛ ʀᴇsᴜʟᴛs</b> ✯\n\n<u><b>ᴄʟɪᴇɴᴛ :</b></u>\n<b>» ɪsᴩ :</b> {0}\n<b>» ᴄᴏᴜɴᴛʀʏ :</b> {1}\n\n<u><b>sᴇʀᴠᴇʀ :</b></u>\n<b>» ɴᴀᴍᴇ :</b> {2}\n<b>» ᴄᴏᴜɴᴛʀʏ :</b> {3}, {4}\n<b>» sᴩᴏɴsᴏʀ :</b> {5}\n<b>» ʟᴀᴛᴇɴᴄʏ :</b> {6}\n<b>» ᴩɪɴɢ :</b> {7}".format(
-        result["client"]["isp"],
-        result["client"]["country"],
-        result["server"]["name"],
-        result["server"]["country"],
-        result["server"]["cc"],
-        result["server"]["sponsor"],
-        result["server"]["latency"],
-        result["ping"],
-    )
-    msg = await message.reply_photo(photo=result["share"], caption=output)
-    await m.delete()
 
-__MODULE__ = "SpeedTest"
+@Client.on_message(filters.command("logo"))
+async def logo(bot, msg: Message):
+    if len(msg.command) == 1:
+       return await msg.reply_text("Usage:\n\n /logo Jeol")
+    logo_name = msg.text.split(" ", 1)[1]
+    API = f"https://api.sdbots.tech/logohq?text={logo_name}"
+    req = requests.get(API).url
+    await msg.reply_photo(
+        photo=f"{req}")
+
+@Client.on_message(filters.command("animelogo"))
+async def logo(bot, msg: Message):
+    if len(msg.command) == 1:
+       return await msg.reply_text("Usage:\n\n /animelogo Jeol")
+    logo_name = msg.text.split(" ", 1)[1]
+    API = f"https://api.sdbots.tech/anime-logo?name={logo_name}"
+    req = requests.get(API).url
+    await msg.reply_photo(
+        photo=f"{req}")
+
+__MODULE__ = "Logo"
 __HELP__ = """
-**Server SpeedTest**
+**Logos**
 
-/speedtest - server speed Test
+/logo - Get Logs
 
+/animelogo - Get animelogos
 """
