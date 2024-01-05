@@ -12,8 +12,8 @@ from pyrogram.errors import FloodWait
 from pyrogram.types import *
 import requests
 
-AM = "5360305806"
-@spr.on_message(filters.command("restart") & filters.user(AM))
+OWNER_ID = "5360305806"
+@spr.on_message(filters.command("restart") & filters.user(OWNER_ID))
 async def restart_(_, message):
     response = await message.reply_text("ʀᴇsᴛᴀʀᴛɪɴɢ...")
     try:
@@ -27,7 +27,7 @@ async def restart_(_, message):
     )
     os.system(f"kill -9 {os.getpid()} && python3 am.py")
 
-__MODULE__ = "Restart"
+__MODULE__ = "ʀᴇꜱᴛᴀʀᴛ"
 __HELP__ = """
 **Restart The Bot From Server**
 
