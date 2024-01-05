@@ -9,7 +9,7 @@ from spr.utils.db import (disable_nsfw, disable_spam, enable_nsfw,
                           is_spam_enabled)
 from spr.utils.misc import admins, get_file_id
 
-__MODULE__ = "ᴍᴀɴᴀɢᴇ"
+__MODULE__ = "Mᴀɴᴀɢᴇ"
 __HELP__ = """
 /anti_nsfw [ENABLE|DISABLE] - Enable or disable NSFW Detection.
 /anti_spam [ENABLE|DISABLE] - Enable or disable Spam Detection.
