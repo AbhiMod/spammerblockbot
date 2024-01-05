@@ -235,9 +235,7 @@ def time_formatter(milliseconds):
 async def activevc(_, message: Message):
     uptime = time_formatter((time.time() - start_time) * 1000)
     cpu = psutil.cpu_percent()
-    users = len(await get_users())
-    chats = len(await get_chats())
-    TEXT = f"**ᴜᴘᴛɪᴍᴇ** : {uptime} | **ᴄᴘᴜ** : {cpu}% | ᴄʜᴀᴛs : {chats}| ᴜsᴇʀs : {users}"
+    TEXT = f"**ᴜᴘᴛɪᴍᴇ** : {uptime} | **ᴄᴘᴜ** : {cpu}%"
     await message.reply(TEXT)
     
 __MODULE__ = "Stats"
