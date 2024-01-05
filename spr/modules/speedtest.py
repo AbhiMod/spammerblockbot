@@ -1,4 +1,5 @@
 import asyncio
+import functools
 
 import speedtest
 from pyrogram import filters
@@ -6,7 +7,6 @@ from pyrogram.types import Message
 
 from spr import spr as app
 from spr import SUDOERS
-
 
 def testspeed(m, _):
     try:
@@ -27,7 +27,8 @@ def testspeed(m, _):
 async def speedtest_function(client, message: Message):
     m = await message.reply_text("» ʀᴜɴɴɪɴɢ ᴀ sᴘᴇᴇᴅᴛᴇsᴛ...")
     loop = asyncio.get_event_loop()
-    result = await loop.run_in_executor(None, testspeed, m)
+    partial_func = functools.partial(testspeed, m)
+    result = await loop.run_in_executor(None, partial_func)
     output = "✯ <b>sᴩᴇᴇᴅᴛᴇsᴛ ʀᴇsᴜʟᴛs</b> ✯\n\n<u><b>ᴄʟɪᴇɴᴛ :</b></u>\n<b>» ɪsᴩ :</b> {0}\n<b>» ᴄᴏᴜɴᴛʀʏ :</b> {1}\n\n<u><b>sᴇʀᴠᴇʀ :</b></u>\n<b>» ɴᴀᴍᴇ :</b> {2}\n<b>» ᴄᴏᴜɴᴛʀʏ :</b> {3}, {4}\n<b>» sᴩᴏɴsᴏʀ :</b> {5}\n<b>» ʟᴀᴛᴇɴᴄʏ :</b> {6}\n<b>» ᴩɪɴɢ :</b> {7}".format(
         result["client"]["isp"],
         result["client"]["country"],
