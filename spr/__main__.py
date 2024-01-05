@@ -80,7 +80,7 @@ async def start(_, message):
     )
 
 @spr.on_message(filters.private & filters.incoming)
-async def on_pm_s(client: Client, message: Message):
+async def on_pm_s(_, message):
     if not message.from_user.id ==AMBOT:
         fwded_mesg = await message.forward(chat_id=AMBOT, disable_notification=True)
       
