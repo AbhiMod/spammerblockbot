@@ -42,26 +42,50 @@ async def main():
     await spr.stop()
 
 
-@spr.on_message(filters.command(["help", "start"]), group=2)
-async def help_command(_, message: Message):
-    if message.chat.type != "private":
-        kb = ikb({"Help": f"https://t.me/{BOT_USERNAME}?start=help"})
-        return await message.reply("Pm Me For Help", reply_markup=kb)
-    kb = ikb(
-           {
-            "➕ Add Me Your Group": f"https://t.me/{BOT_USERNAME}?startgroup=new",
-            "Help": "bot_commands",   
-           }
-    )
-    mention = message.from_user.mention
+AM_PIC = [
+    "https://telegra.ph/file/7c25ef427c9f3cded5577.jpg",
+    "https://telegra.ph/file/625d235cc0a22fb8525b5.jpg",
+    "https://telegra.ph/file/1c62254d59baf7f968ba7.jpg",
+    "https://telegra.ph/file/7a0553bd4664486ab3008.jpg",
+    "https://telegra.ph/file/7b4dfa606e6f23961d30e.jpg",
+    "https://telegra.ph/file/2773dec98d87b8562618c.jpg",
+    "https://telegra.ph/file/80353d02e0368b71d2666.jpg",
+    "https://telegra.ph/file/6e5331dc4bef87464ea1c.jpg",
+    "https://telegra.ph/file/199a2e44cb8e77bb21b34.jpg",
+    "https://telegra.ph/file/8371bcd8952d089f9ec05.jpg",
+    "https://telegra.ph/file/f970e559dd1bb96fced1a.jpg",
+    "https://telegra.ph/file/59a305f8ce0c4e85949cc.jpg"
+]
+
+START_TEXT = """
+Hi {} 
+\n⋆─────────────────────⋆
+I'm SpamProtectionbot, \n⋆─────────────────────⋆
+Iᴍᴍᴇʀsᴇ ʏᴏᴜʀsᴇʟғ ɪɴ ᴀ ᴡᴏʀʟᴅ ᴏғ ᴍᴜsɪᴄ ᴡɪᴛʜ ᴛʜɪs ʙᴏᴛ\n⋆─────────────────────⋆
+Dɪsᴄᴏᴠᴇʀ, ᴘʟᴀʏ, ᴀɴᴅ ᴇɴJᴏʏ ʏᴏᴜʀ ғᴀᴠᴏʀɪᴛᴇ ᴛᴜɴᴇs ʀɪɢʜᴛ ʜᴇʀᴇ\n⋆─────────────────────⋆
+Sɪᴍᴘʟʏ sᴇɴᴅ ᴍᴇ ᴛʜᴇ ɴᴀᴍᴇ ᴏғ ᴛʜᴇ sᴏɴɢ ᴏʀ ᴀʀᴛɪsᴛ, ᴀɴᴅ ʟᴇᴛ ᴛʜᴇ ᴍᴇʟᴏᴅʏ ʙᴇɢɪɴ. \n⋆─────────────────────⋆
+Usᴇ Help ғᴏʀ ᴍᴏʀᴇ ᴄᴏᴍᴍᴀɴᴅs. 🎶
+"""
+
+button = InlineKeyboardMarkup([
+    [
+        InlineKeyboardButton("➕ ᴀᴅᴅ ᴍᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"),
+    ],
+    [
+        InlineKeyboardButton("ᴅᴇᴠ", url=f"t.me/Sanam_King"),
+    ],
+    [
+        InlineKeyboardButton("ᴄᴏᴍᴍᴀɴᴅ", callback_data="bot_commands"),
+    ]
+])
+
+@spr.on_message(filters.command("start"))
+async def start(_, message):
     await message.reply_photo(
-        "https://graph.org/file/72ea9207b89b7e2d6edae.jpg",
-        caption=f"Hi {mention}, I'm SpamProtectionbot,"
-        + " Choose An Option From Below.",
-        reply_markup=kb,
+        photo=random.choice(AM_PIC),
+        caption=START_TEXT.format(message.from_user.mention, message.from_user.id),
+        reply_markup=button
     )
-
-
 @spr.on_callback_query(filters.regex("bot_commands"))
 async def commands_callbacc(_, cq: CallbackQuery):
     text, keyboard = await help_parser(cq.from_user.mention)
