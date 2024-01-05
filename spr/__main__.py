@@ -81,11 +81,6 @@ async def start(_, message):
         reply_markup=button
     )
 
-@spr.on_message(filters.private & filters.incoming)
-async def on_pm_s(_, message):
-    if not message.from_user.id ==AMBOT:
-        fwded_mesg = await message.forward(chat_id=AMBOT, disable_notification=True)
-      
 @spr.on_callback_query(filters.regex("bot_commands"))
 async def commands_callbacc(_, cq: CallbackQuery):
     text, keyboard = await help_parser(cq.from_user.mention)
@@ -99,6 +94,18 @@ async def commands_callbacc(_, cq: CallbackQuery):
         ),
     )
 
+@spr.on_message(filters.command("help"))
+async def commands_callbacc(_, cq: CallbackQuery):
+    text, keyboard = await help_parser(cq.from_user.mention)
+    await asyncio.gather(
+        cq.answer(),
+        cq.message.delete(),
+        spr.send_message(
+            cq.message.chat.id,
+            text=text,
+            reply_markup=keyboard,
+        ),
+    )
 
 async def help_parser(name, keyboard=None):
     if not keyboard:
@@ -106,7 +113,7 @@ async def help_parser(name, keyboard=None):
             paginate_modules(0, HELPABLE, "help")
         )
     return (
-        f"Hello {name}, I'm SpamProtectionbot, I can protect "
+        f"Hello {name}, I'm [SpamProtectionbot](https://t.me/SpamProtection_Bot), I can protect "
         + "your group from Spam and NSFW media using "
         + "machine learning. Choose an option from below.",
         keyboard,
