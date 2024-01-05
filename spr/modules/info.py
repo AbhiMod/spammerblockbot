@@ -11,7 +11,7 @@ from spr.utils.db import (add_chat, add_user, chat_exists,
                           is_chat_blacklisted, is_user_blacklisted,
                           user_exists)
 
-__MODULE__ = "Info"
+__MODULE__ = "Iɴꜰᴏ"
 __HELP__ = """
 **Get Info About A Chat Or User**
 
