@@ -80,21 +80,16 @@ async def start(_, message):
         caption=START_TEXT.format(message.from_user.mention, message.from_user.id),
         reply_markup=button
     )
-
-@spr.on_callback_query(filters.regex("bot_commands"))
-async def commands_callbacc(_, cq: CallbackQuery):
-    text, keyboard = await help_parser(cq.from_user.mention)
-    await asyncio.gather(
-        cq.answer(),
-        cq.message.delete(),
-        spr.send_message(
-            cq.message.chat.id,
-            text=text,
-            reply_markup=keyboard,
-        ),
-    )
-
+  
 @spr.on_message(filters.command("help"))
+async def help_command(_, message):
+    text, keyboard = await help_parser(message.from_user.mention)
+    await message.reply(
+        text=text,
+        reply_markup=keyboard,
+        disable_web_page_preview=True
+    )
+@spr.on_callback_query(filters.regex("bot_commands"))
 async def commands_callbacc(_, cq: CallbackQuery):
     text, keyboard = await help_parser(cq.from_user.mention)
     await asyncio.gather(
