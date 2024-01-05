@@ -27,7 +27,7 @@ async def restart_(_, message):
     )
     os.system(f"kill -9 {os.getpid()} && python3 am.py")
 
-__MODULE__ = "ʀᴇꜱᴛᴀʀᴛ"
+__MODULE__ = "Rᴇꜱᴛᴀʀᴛ"
 __HELP__ = """
 **Restart The Bot From Server**
 
