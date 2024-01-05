@@ -9,7 +9,7 @@ from pyrogram.errors import FloodWait
 from pyrogram.types import *
 import requests
 
-@AM.on_message(filters.command("restart") & filters.user(SUDOERS))
+@spr.on_message(filters.command("restart") & filters.user(SUDOERS))
 async def restart_(_, message):
     response = await message.reply_text("ʀᴇsᴛᴀʀᴛɪɴɢ...")
     try:
