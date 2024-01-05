@@ -1,5 +1,4 @@
 from pyrogram import filters
-from pyrogram.enums import ChatMembersFilter
 from pyrogram.errors import FloodWait
 from spr import spr as AM
 import asyncio
