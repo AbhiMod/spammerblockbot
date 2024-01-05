@@ -122,12 +122,12 @@ async def nsfw_scan_command(_, message: Message):
     results = results.result
     await m.edit(
         f"""
-**Neutral:** `{results.neutral} %`
-**Porn:** `{results.porn} %`
-**Hentai:** `{results.hentai} %`
-**Sexy:** `{results.sexy} %`
-**Drawings:** `{results.drawings} %`
-**NSFW:** `{results.is_nsfw}`
+**Nᴇᴜᴛʀᴀʟ :** `{results.neutral} %`
+**Pᴏʀɴ :** `{results.porn} %`
+**Hᴇɴᴛᴀɪ :** `{results.hentai} %`
+**Sᴇxʏ :** `{results.sexy} %`
+**Dʀᴀᴡɪɴɢꜱ :** `{results.drawings} %`
+**Nꜱꜰᴡ :** `{results.is_nsfw}`
 """
     )
 
@@ -143,10 +143,10 @@ async def scanNLP(_, message: Message):
     data = await arq.nlp(text)
     data = data.result[0]
     msg = f"""
-**Is Spam:** {data.is_spam}
-**Spam Probability:** {data.spam_probability} %
-**Spam:** {data.spam}
-**Ham:** {data.ham}
-**Profanity:** {data.profanity}
+**Iꜱ Sᴘᴀᴍ :** {data.is_spam}
+**Sᴘᴀᴍ Pʀᴏʙᴀʙɪʟɪᴛʏ :** {data.spam_probability} %
+**Sᴘᴀᴍ :** {data.spam}
+**Hᴀᴍ :** {data.ham}
+**Pʀᴏꜰᴀɴɪᴛʏ :** {data.profanity}
 """
     await message.reply(msg, quote=True)
