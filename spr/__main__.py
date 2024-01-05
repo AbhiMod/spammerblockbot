@@ -124,7 +124,7 @@ async def help_button(client, query: CallbackQuery):
     create_match = re.match(r"help_create", query.data)
     u = query.from_user.mention
     top_text = (
-        f"Hello {u}, I'm [SpamProtectionbot](https://t.me/SpamProtection_Bot), I can protect "
+        f"Hello {u}, I'm SpamProtectionbot, I can protect "
         + "your group from Spam and NSFW media using "
         + "machine learning. Choose an option from below."
     )
@@ -195,7 +195,7 @@ async def help_button(client, query: CallbackQuery):
 async def runs_func(_, message: Message):
     await message.reply("""
 ╭──────────────────╮
- 🤖 Bots List 🤖
+    🤖 Bots List 🤖
 ╰──────────────────╯ 
 ✪ Public :
 ╰─➩ @Sophia_x_MusicBot
@@ -216,7 +216,7 @@ async def runs_func(_, message: Message):
 ╰─➩ @Profile_Pundit_Bot
 ╰──────────────────
 
-What am i? Rose?
+  What am i? Rose?
     """)
 
 
