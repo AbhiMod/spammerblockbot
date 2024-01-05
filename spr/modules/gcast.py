@@ -238,11 +238,9 @@ async def activevc(_, message: Message):
     TEXT = f"**ᴜᴘᴛɪᴍᴇ** : {uptime} | **ᴄᴘᴜ** : {cpu}%"
     await message.reply(TEXT)
     
-__MODULE__ = "Stats"
+__MODULE__ = "Sᴛᴀᴛꜱ"
 __HELP__ = """
 **The Cmds Is Bot Stats**
-
-/gcast - Reply With Messege
 
 /announce - Reply To Some Post To Broadcast
 
