@@ -108,7 +108,7 @@ async def help_parser(name, keyboard=None):
             paginate_modules(0, HELPABLE, "help")
         )
     return (
-        f"Hello {name}, I'm [SpamProtectionbot](https://t.me/SpamProtection_Bot), I can protect "
+        f"Hello {name}, I'm SpamProtectionbot, I can protect "
         + "your group from Spam and NSFW media using "
         + "machine learning. Choose an option from below.",
         keyboard,
