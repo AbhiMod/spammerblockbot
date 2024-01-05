@@ -13,11 +13,11 @@ from spr.utils.db import (add_chat, add_user, chat_exists,
 
 __MODULE__ = "Iɴꜰᴏ"
 __HELP__ = """
-**Get Info About A Chat Or User**
+**ɢᴇᴛ ɪɴꜰᴏ ᴀʙᴏᴜᴛ ᴀ ᴄʜᴀᴛ ᴏʀ ᴜꜱᴇʀ**
 
 /info [CHAT_ID/Username|USER_ID/Username]
 
-or you can use inline mode >>
+ᴏʀ ʏᴏᴜ ᴄᴀɴ ᴜꜱᴇ ɪɴʟɪɴᴇ ᴍᴏᴅᴇ >>
 @SpamProtection_Bot [CHAT_ID/Username|USER_ID/Username]
 """
 
@@ -35,21 +35,20 @@ async def get_user_info(user):
     if blacklisted:
         reason, time = get_blacklist_event(user.id)
     data = f"""
-**ID:** {user.id}
-**DC:** {user.dc_id}
-**Username:** {user.username}
-**Mention: ** {user.mention("Link")}
-
-**Is Sudo:** {user.id in SUDOERS}
-**Trust:** {trust}
-**Spammer:** {True if trust < 50 else False}
-**Reputation:** {get_reputation(user.id)}
-**NSFW Count:** {get_nsfw_count(user.id)}
-**Potential Spammer:** {True if trust < 70 else False}
-**Blacklisted:** {blacklisted}
+**Iᴅ :** `{user.id}`
+**Dᴄ :** `{user.dc_id}`
+**Uꜱᴇʀɴᴀᴍᴇ :** @{user.username}
+**Mᴇɴᴛɪᴏɴ : ** {user.mention("Link")}
+**Iꜱ Sᴜᴅᴏ :** {user.id in SUDOERS}
+**Tʀᴜꜱᴛ :** `{trust}`
+**Sᴘᴀᴍᴍᴇʀ :** `{True if trust < 50 else False}`
+**Rᴇᴘᴜᴛᴀᴛɪᴏɴ :** `{get_reputation(user.id)}`
+**Nꜱꜰᴡ Cᴏᴜɴᴛ :** `{get_nsfw_count(user.id)}`
+**Pᴏᴛᴇɴᴛɪᴀʟ Sᴘᴀᴍᴍᴇʀ :** `{True if trust < 70 else False}`
+**Bʟᴀᴄᴋʟɪꜱᴛᴇᴅ :** `{blacklisted}`
 """
     data += (
-        f"**Blacklist Reason:** {reason} | {ctime(time)}"
+        f"**Bʟᴀᴄᴋʟɪꜱᴛ Rᴇᴀꜱᴏɴ :** {reason} | {ctime(time)}"
         if reason
         else ""
     )
@@ -68,16 +67,16 @@ async def get_chat_info(chat):
     if blacklisted:
         reason, time = get_blacklist_event(chat.id)
     data = f"""
-**ID:** {chat.id}
-**Username:** {chat.username}
-**Type:** {chat.type}
-**Members:** {chat.members_count}
-**Scam:** {chat.is_scam}
-**Restricted:** {chat.is_restricted}
-**Blacklisted:** {blacklisted}
+**ID :** `{chat.id}`
+**Uꜱᴇʀɴᴀᴍᴇ :** @{chat.username}
+**Tʏᴘᴇ :** {chat.type}
+**Mᴇᴍʙᴇʀꜱ :** {chat.members_count}
+**Sᴄᴀᴍ :** {chat.is_scam}
+**Rᴇꜱᴛʀɪᴄᴛᴇᴅ :** {chat.is_restricted}
+**Bʟᴀᴄᴋʟɪꜱᴛᴇᴅ :** {blacklisted}
 """
     data += (
-        f"**Blacklist Reason:** {reason} | {ctime(time)}"
+        f"**Bʟᴀᴄᴋʟɪꜱᴛ Rᴇᴀꜱᴏɴ :** {reason} | {ctime(time)}"
         if reason
         else ""
     )
@@ -125,7 +124,7 @@ async def inline_info_func(_, query: InlineQuery):
     else:
         results = [
             InlineQueryResultArticle(
-                "Found Entity",
+                "Fᴏᴜɴᴅ Eɴᴛɪᴛʏ",
                 input_message_content=InputTextMessageContent(entity),
             )
         ]
