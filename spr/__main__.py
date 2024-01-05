@@ -63,7 +63,7 @@ Usᴇ Help ғᴏʀ ᴍᴏʀᴇ ᴄᴏᴍᴍᴀɴᴅs.
 
 button = InlineKeyboardMarkup([
     [
-        InlineKeyboardButton("➕ ᴀᴅᴅ ᴍᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"),
+        InlineKeyboardButton("➕ ᴀᴅᴅ ᴍᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ", url=f"https://t.me/SpamProtection_Bot?startgroup=s&admin=delete_messages+manage_video_chats+pin_messages+invite_users"),
     ],
     [
         InlineKeyboardButton("ᴅᴇᴠ", url=f"t.me/Sanam_King"),
@@ -124,7 +124,7 @@ async def help_button(client, query: CallbackQuery):
     create_match = re.match(r"help_create", query.data)
     u = query.from_user.mention
     top_text = (
-        f"Hello {u}, I'm SpamProtectionRobot, I can protect "
+        f"Hello {u}, I'm [SpamProtectionbot](https://t.me/SpamProtection_Bot), I can protect "
         + "your group from Spam and NSFW media using "
         + "machine learning. Choose an option from below."
     )
@@ -193,7 +193,31 @@ async def help_button(client, query: CallbackQuery):
 
 @spr.on_message(filters.command("runs"), group=3)
 async def runs_func(_, message: Message):
-    await message.reply("What am i? Rose?")
+    await message.reply("""
+╭──────────────────╮
+ 🤖 Bots List 🤖
+╰──────────────────╯ 
+✪ Public :
+╰─➩ @Sophia_x_MusicBot
+╰─➩ @Shizuka_x_Music_bot
+╰─➩ @MikaShaaAIBot
+╰─➩ @EcoBaseBot
+╰─➩ @Anierobot_bot
+╰─➩ @MRS_ERICA_BOT
+╰─➩ @Morgana_tg_bot
+╰─➩ @Kora_Xbot
+╰─➩ @Yone_Robot
+╰─➩ @YoneTg_Robot
+╰─➩ @MissPoppy_bot
+╰─➩ @Kayn_Robot
+╰─➩ @SpamProtection_Bot
+╰─➩ @Sessoin_String_gen_BOT
+╰─➩ @Session_HackBOT
+╰─➩ @Profile_Pundit_Bot
+╰──────────────────
+
+What am i? Rose?
+    """)
 
 
 if __name__ == "__main__":
