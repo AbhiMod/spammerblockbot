@@ -1,4 +1,7 @@
 import asyncio
+import os
+import shutil
+import socket
 import functools
 from pyrogram.types import Message
 from spr import spr
