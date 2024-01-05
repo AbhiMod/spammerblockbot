@@ -25,7 +25,7 @@ async def on_new_chat_members(client: Client, message: Message):
             chatusername = f"@{message.chat.username}"
         else:
             chatusername = "ᴩʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ"
-        lemda_text = f"ʙᴏᴛ ᴀᴅᴅᴇᴅ ᴛᴏ ɴᴇᴡ ɢʀᴏᴜᴘ ..\n\n\n**ᴄʜᴀᴛ** › : {matlabi_jhanto}\n**ᴄʜᴀᴛ ɪᴅ** › : {chat_id}\n**ᴄʜᴀᴛ ᴜɴᴀᴍᴇ** › : {chatusername}\n**ᴛᴏᴛᴀʟ ᴄʜᴀᴛ** › : {served_chats}\n**ᴀᴅᴅᴇᴅ ʙʏ** › : {added_by}"
+        lemda_text = f"ʙᴏᴛ ᴀᴅᴅᴇᴅ ᴛᴏ ɴᴇᴡ ɢʀᴏᴜᴘ ..\n\n\n**ᴄʜᴀᴛ** › : {matlabi_jhanto}\n**ᴄʜᴀᴛ ɪᴅ** › : `{chat_id}`\n**ᴄʜᴀᴛ ᴜɴᴀᴍᴇ** › : {chatusername}\n**ᴀᴅᴅᴇᴅ ʙʏ** › : {added_by}"
         await lul_message(AM_SUPPORT, lemda_text)
         
 
