@@ -240,11 +240,11 @@ async def activevc(_, message: Message):
     
 __MODULE__ = "Sᴛᴀᴛꜱ"
 __HELP__ = """
-**The Cmds Is Bot Stats**
+**ᴛʜᴇ ᴄᴍᴅꜱ ɪꜱ ʙᴏᴛ ꜱᴛᴀᴛꜱ**
 
-/announce - Reply To Some Post To Broadcast
+/announce - ʀᴇᴘʟʏ ᴛᴏ ꜱᴏᴍᴇ ᴘᴏꜱᴛ ᴛᴏ ʙʀᴏᴀᴅᴄᴀꜱᴛ
 
-/stats - Check Bot User Stast
+/stats - ᴄʜᴇᴄᴋ ʙᴏᴛ ᴜꜱᴇʀ ꜱᴛᴀꜱᴛ
 
-/bot - Bot Uptime To Load
+/bot - ʙᴏᴛ ᴜᴘᴛɪᴍᴇ ᴛᴏ ʟᴏᴀᴅ
 """
