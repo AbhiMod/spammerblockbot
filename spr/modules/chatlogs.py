@@ -20,7 +20,6 @@ async def on_new_chat_members(client: Client, message: Message):
     if (await client.get_me()).id in [user.id for user in message.new_chat_members]:
         added_by = message.from_user.mention if message.from_user else "ᴜɴᴋɴᴏᴡɴ ᴜsᴇʀ"
         matlabi_jhanto = message.chat.title
-        served_chats = len(await get_served_chats())
         chat_id = message.chat.id
         if message.chat.username:
             chatusername = f"@{message.chat.username}"
