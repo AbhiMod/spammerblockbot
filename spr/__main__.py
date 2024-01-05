@@ -2,7 +2,7 @@ import asyncio
 import re
 from importlib import import_module as import_
 import random
-from pyrogram import filters, idle
+from pyrogram import filters, filters, idle
 from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 
